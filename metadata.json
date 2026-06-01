@@ -1,0 +1,10 @@
+{
+  "name": "客室清掃リアルタイム管理",
+  "description": "ホテル客室清掃管理システム。清掃スタッフ向けモバイル画面とフロント・管理者向けダッシュボードで、リアルタイムな客室ステータス管理と不備報告を実現。",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

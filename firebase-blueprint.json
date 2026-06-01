@@ -1,0 +1,62 @@
+{
+  "entities": {
+    "Room": {
+      "title": "Room",
+      "description": "A hotel room and its cleaning status",
+      "type": "object",
+      "properties": {
+        "roomNumber": { "type": "string", "description": "The human-readable room number (e.g. '101')" },
+        "status": { 
+          "type": "string", 
+          "enum": ["dirty", "cleaning", "checking", "clean"],
+          "description": "Current cleaning status"
+        },
+        "assignedStaffId": { "type": "string", "description": "UID of the assigned staff member" },
+        "assignedStaffName": { "type": "string", "description": "Name of the assigned staff member" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["roomNumber", "status", "updatedAt"]
+    },
+    "Staff": {
+      "title": "Staff",
+      "description": "Hotel staff member",
+      "type": "object",
+      "properties": {
+        "name": { "type": "string" },
+        "role": { "type": "string", "enum": ["cleaner", "manager"] }
+      },
+      "required": ["name", "role"]
+    },
+    "Report": {
+      "title": "Report",
+      "description": "Issue or lost item report from cleaner",
+      "type": "object",
+      "properties": {
+        "roomId": { "type": "string" },
+        "roomNumber": { "type": "string" },
+        "staffId": { "type": "string" },
+        "staffName": { "type": "string" },
+        "type": { "type": "string", "enum": ["issue", "lost_item"] },
+        "description": { "type": "string" },
+        "imageUrl": { "type": "string" },
+        "status": { "type": "string", "enum": ["pending", "resolved"] },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["roomId", "roomNumber", "staffId", "type", "createdAt", "status"]
+    }
+  },
+  "firestore": {
+    "/rooms/{roomId}": {
+      "schema": "Room",
+      "description": "Collection of hotel rooms"
+    },
+    "/staff/{staffId}": {
+      "schema": "Staff",
+      "description": "Collection of staff profiles"
+    },
+    "/reports/{reportId}": {
+      "schema": "Report",
+      "description": "Collection of reports (issues, lost items)"
+    }
+  }
+}
