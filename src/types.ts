@@ -10,7 +10,7 @@ export interface Room {
   assignedStaffId: string | null;
   assignedStaffName: string | null;
   roomType?: string;
-  updatedAt: any; // Firestore Timestamp
+  updatedAt: any; // Timestamp
   lastMaintenanceDate?: any;
   maintenanceNote?: string;
 }
@@ -46,5 +46,5 @@ export interface Report {
   description: string;
   imageUrl: string;
   status: ReportStatus;
-  createdAt: any; // Firestore Timestamp
+  createdAt: any; // Timestamp
 }

@@ -15,21 +15,20 @@ import { cn } from './lib/utils';
 import CleanerUI from './components/CleanerUI';
 import ManagerUI from './components/ManagerUI';
 import type { Room, Staff, Report, RoomStatus, ReportType, ChecklistItem } from './types';
-import { 
-  collection, 
-  onSnapshot, 
-  updateDoc, 
-  doc, 
-  addDoc, 
+import {
+  db,
+  collection,
+  onSnapshot,
+  updateDoc,
+  doc,
+  addDoc,
   serverTimestamp,
   query,
   orderBy,
   setDoc,
   deleteDoc,
-  getDoc,
   getDocs
-} from 'firebase/firestore';
-import { db } from './lib/firebase';
+} from './lib/firebase';
 
 export default function App() {
   const [currentStaff, setCurrentStaff] = useState<Staff | null>(null);
